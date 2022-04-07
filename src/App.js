@@ -3,8 +3,23 @@ import "./App.css";
 import Main from "./components/main/main";
 import SidBar from "./components/sidBar/SidBar";
 import SideProfile from "./components/sideProfile/sideProfile";
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import Loader from './svg/Loader'
 
 const App = () => {
+
+const logoutBtnStyle = {
+    backgroundColor: "#546e7a",
+    margin: "1.6em 0 0 0",
+    padding: "0.5em 0",
+    width: "13rem",
+    border: "none",
+    color: "white",
+    borderRadius: "2em",
+    display: "inline",
+};
+  const { logout } = useAuth0();
+
   return (
     <Container bg="#f8fafd" maxW="Container.3xl" height="100vh" p="0">
       <Flex height="full">
@@ -22,7 +37,16 @@ const App = () => {
         >
           <SidBar />
         </Box>
-        <Box height="full" flex={5} w={["20%", "30%", "20%", "50%", "60%"]}>
+        <Box height="full" flex={5} w={[ "20%", "30%", "20%", "50%", "60%" ]}>
+          <button
+            style={logoutBtnStyle}
+            onClick={() => logout( {
+            returnTo: window.location.origin,
+            } )
+            }
+            >
+          <strong>Logout</strong>
+          </button>
           <Main />
         </Box>
         <Box
@@ -38,4 +62,8 @@ const App = () => {
   );
 };
 
-export default App;
+
+
+export default withAuthenticationRequired(App, {
+  onRedirecting: () => <Loader/>,
+});

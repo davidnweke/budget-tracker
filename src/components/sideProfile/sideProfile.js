@@ -6,6 +6,7 @@ import { Image } from "@chakra-ui/image";
 import rocket from "../images/rocket.png";
 import { Button } from "@chakra-ui/button";
 
+
 const SideProfile = () => {
   return (
     <Flex flexDirection="column" alignItems="center"  >

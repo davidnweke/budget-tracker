@@ -7,7 +7,7 @@ import { IoMdAnalytics } from "react-icons/io";
 import { IoCalendarSharp, IoSettings } from "react-icons/io5";
 import { HiHome } from "react-icons/hi";
 
-const SidBar = () => {
+const SideBar = () => {
   return (
     <Flex
     pr={["0px", "0px", "0px","0px","40px"]}
@@ -193,4 +193,4 @@ const SidBar = () => {
   );
 };
 
-export default SidBar;
+export default SideBar;

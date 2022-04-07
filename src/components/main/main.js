@@ -11,6 +11,7 @@ import OverView from "./OverView";
 import { useDisclosure } from "@chakra-ui/hooks";
 import TransactionComp from "./TransactionComp";
 
+
 const Main = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [expense, setExpense] = useState(0);
@@ -37,6 +38,7 @@ const Main = () => {
   }, [transAction]);
 
   return (
+    
     <Flex textAlign="center" flexDirection="column" pr="5" pl="5">
       <Flex alignItems="center" justifyContent="space-between" mt="12">
         <Heading color="gray.700" display={["none", "block","block", "block","block"]}>OverView</Heading>
@@ -56,7 +58,6 @@ const Main = () => {
             />
             <InputRightElement children={<RiSearch2Line color="#A0AEC0" />} />
           </InputGroup>
-
           <Button
             bg="green.300"
             color="white"
